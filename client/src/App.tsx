@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import './App.css';
 
 import {useTranslation} from 'react-i18next';
 
@@ -25,7 +26,9 @@ function App() {
                 <h2>
                     {t('translations:hello_world')}
                 </h2>
-                <span> Browser Language: {lng} </span>
+                <span>
+          Browser Language: {lng}
+        </span>
             </header>
         </div>
     );

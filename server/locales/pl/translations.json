@@ -1,3 +1,6 @@
 {
-  "hello_world": "Czesc swiecie!"
+  "hello": "Aplikacja stworzona na potrzeby rekrutacji do firmy: PlayaMedia.",
+  "home": "Główna",
+  "todo": "Do zrobienia",
+  "title": "Lista rzeczy do zrobienia"
 }

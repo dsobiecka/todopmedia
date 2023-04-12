@@ -1,11 +1,18 @@
-import PropTypes from 'prop-types';
+import React from "react";
+import {useTranslation} from "react-i18next";
 
-const Home = () => {
+const Home = ({t}: { t: any }) => {
+    const {t: translate} = useTranslation();
+
     return (
-        <div>Home</div>
+        <div>
+            <div>
+                <h2 className="mt-5 pt-5 text-center">
+                    {t('translations:hello')}
+                </h2>
+            </div>
+        </div>
     )
 };
-
-Home.propTypes = {};
 
 export default Home;

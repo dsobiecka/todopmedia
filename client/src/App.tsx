@@ -19,16 +19,11 @@ function App() {
 
     return (
         <>
-            <Navbar lng={lng} i18n={i18n}/>
+            <Navbar lng={lng} i18n={i18n} t={t}/>
             <Container className="mb-4">
-                <div>
-                    <h2>
-                        {t('translations:hello_world')}
-                    </h2>
-                </div>
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/todo" element={<Todo/>}/>
+                    <Route path="/" element={<Home t={t}/>}/>
+                    <Route path="/todo" element={<Todo t={t}/>}/>
                 </Routes>
             </Container>
         </>

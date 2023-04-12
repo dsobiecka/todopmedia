@@ -8,6 +8,7 @@ import ES from 'country-flag-icons/react/3x2/ES';
 interface NavbarProps {
     lng: string;
     i18n: any;
+    t: any;
 }
 
 const Navbar = (props: NavbarProps) => {
@@ -43,8 +44,8 @@ const Navbar = (props: NavbarProps) => {
             <NavbarBs className="bg-white shadow-lg mb-3">
                 <Container>
                     <Nav className="me-auto">
-                        <Nav.Link to="/" as={NavLink}>Home</Nav.Link>
-                        <Nav.Link to="/todo" as={NavLink}>To Do</Nav.Link>
+                        <Nav.Link to="/" as={NavLink}>{props.t('translations:home')}</Nav.Link>
+                        <Nav.Link to="/todo" as={NavLink}>{props.t('translations:todo')}</Nav.Link>
                     </Nav>
                 </Container>
             </NavbarBs>

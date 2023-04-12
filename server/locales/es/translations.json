@@ -1,3 +1,6 @@
 {
-    "hello_world": "Hola Mundo"
+  "hello": "Aplicación creada con fines de contratación para la empresa: PlayaMedia.",
+  "home": "Principal",
+  "todo": "Hacer",
+  "title": "Lista de quehaceres"
 }

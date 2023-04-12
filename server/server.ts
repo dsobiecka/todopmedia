@@ -17,6 +17,11 @@ app.use(
 );
 
 app.use("/locales", express.static("locales"));
+app.use(express.static('public'));
 app.use(errorMiddleware);
+
+app.get('/data.json', (req, res) => {
+    res.sendFile(__dirname + '/public/data.json');
+});
 
 export default app;

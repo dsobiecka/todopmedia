@@ -1,8 +1,9 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useState, useEffect} from "react";
 import {useTranslation} from "react-i18next";
 import FormInputs from "../components/FormInputs";
 import FormList from "../components/FormList";
 import {ITask} from "../interfaces/interface";
+import { getTasks } from '../api/api';
 
 const Todo = ({t}: { t: any }) => {
     const {t: translate} = useTranslation();
@@ -33,6 +34,21 @@ const Todo = ({t}: { t: any }) => {
             })
         );
     };
+
+    useEffect(() => {
+        const fetchTasks = async () => {
+            const tasks = await getTasks();
+            const formattedTasks = tasks.map((task: any) => {
+                return {
+                    taskName: task.taskName,
+                    deadline: task.deadline,
+                    completeTask: task.completeTask,
+                }
+            });
+            setTodoList(formattedTasks);
+        };
+        fetchTasks();
+    }, []);
 
     return (
         <div>

@@ -4,7 +4,6 @@ import {Container, Card, Button} from "react-bootstrap";
 
 interface Props {
     task: ITask;
-
     completeTask(taskNameToDelete: string): void;
 }
 

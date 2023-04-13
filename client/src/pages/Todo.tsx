@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState, useEffect, useMemo, useCallback} from "react";
+import React, {ChangeEvent, useState, useEffect} from "react";
 import {useTranslation} from "react-i18next";
 import FormInputs from "../components/FormInputs";
 import FormList from "../components/FormList";
@@ -21,37 +21,34 @@ const Todo = ({t}: { t: any }) => {
         }
     }
 
-    const addTask = useCallback((): void => {
+    const addTask = (): void => {
         const newTask = {id: uuidv4(), taskName: task, deadline: deadline, completed: false};
         setTodoList([...toDoList, newTask]);
         setTask("");
         setDeadline("");
-    }, [toDoList, task, deadline]);
+    }
 
-    const completeTask = useCallback((taskNameToDelete: string): void => {
+    const completeTask = (taskNameToDelete: string): void => {
         setTodoList(
             toDoList.filter((task) => {
-                return task.taskName !== taskNameToDelete;
+                return task.taskName != taskNameToDelete;
             })
         );
-    }, [toDoList]);
-
-    const formattedTasks = useMemo(() => {
-        return toDoList.map((task: any) => {
-            return {
-                id: uuidv4(),
-                taskName: task.taskName,
-                deadline: task.deadline,
-                completed: task.completed,
-                checkbox: task.completed,
-            }
-        });
-    }, [toDoList]);
+    };
 
     useEffect(() => {
         const fetchTasks = async () => {
             const tasks = await getTasks();
-            setTodoList(tasks);
+            const formattedTasks = tasks.map((task: any) => {
+                return {
+                    id: uuidv4(),
+                    taskName: task.taskName,
+                    deadline: task.deadline,
+                    completed: task.completed,
+                    checkbox: task.completed,
+                }
+            });
+            setTodoList(formattedTasks);
         };
         fetchTasks();
     }, []);
@@ -68,7 +65,7 @@ const Todo = ({t}: { t: any }) => {
                 addTask={addTask}
                 t={t}
             />
-            {formattedTasks.map((task: ITask, key: number) => {
+            {toDoList.map((task: ITask, key: number) => {
                 return (
                     <FormList
                         key={key}

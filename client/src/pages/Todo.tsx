@@ -22,7 +22,7 @@ const Todo = ({t}: { t: any }) => {
     }
 
     const addTask = (): void => {
-        const newTask = {id: uuidv4(), taskName: task, deadline: deadline};
+        const newTask = {id: uuidv4(), taskName: task, deadline: deadline, completed: false};
         setTodoList([...toDoList, newTask]);
         setTask("");
         setDeadline("");
@@ -44,7 +44,8 @@ const Todo = ({t}: { t: any }) => {
                     id: uuidv4(),
                     taskName: task.taskName,
                     deadline: task.deadline,
-                    completeTask: task.completeTask,
+                    completed: task.completed,
+                    checkbox: task.completed,
                 }
             });
             setTodoList(formattedTasks);
@@ -64,7 +65,14 @@ const Todo = ({t}: { t: any }) => {
                 addTask={addTask}
             />
             {toDoList.map((task: ITask, key: number) => {
-                return <FormList key={key} task={task} completeTask={completeTask}/>;
+                return (
+                    <FormList key={key}
+                              task={task}
+                              completeTask={completeTask}
+                              toDoList={toDoList}
+                              setTodoList={setTodoList}
+                    />
+                );
             })}
         </div>
     )

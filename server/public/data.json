@@ -1,17 +1,17 @@
 [
   {
     "taskName": "foo",
-    "deadline": "12-05-2023",
+    "deadline": "2023-05-12",
     "completed": false
   },
   {
     "taskName": "bar",
-    "deadline": "24-06-2023",
+    "deadline": "2023-06-24",
     "completed": false
   },
   {
     "taskName": "buz",
-    "deadline": "04-03-2023",
+    "deadline": "2023-03-04",
     "completed": true
   }
 ]

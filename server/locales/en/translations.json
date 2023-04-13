@@ -2,5 +2,7 @@
   "hello": "Application created for recruitment purposes for the company: PlayaMedia.",
   "home": "Home",
   "todo": "To Do",
-  "title": "To Do List"
+  "title": "To Do List",
+  "task": "Task",
+  "addtask": "Add Task"
 }

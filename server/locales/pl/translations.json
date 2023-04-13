@@ -2,5 +2,7 @@
   "hello": "Aplikacja stworzona na potrzeby rekrutacji do firmy: PlayaMedia.",
   "home": "Główna",
   "todo": "Do zrobienia",
-  "title": "Lista rzeczy do zrobienia"
+  "title": "Lista rzeczy do zrobienia",
+  "task": "Zadanie",
+  "addtask": "Dodaj zadanie"
 }

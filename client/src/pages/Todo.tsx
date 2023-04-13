@@ -31,7 +31,7 @@ const Todo = ({t}: { t: any }) => {
     const completeTask = useCallback((taskNameToDelete: string): void => {
         setTodoList(
             toDoList.filter((task) => {
-                return task.taskName != taskNameToDelete;
+                return task.taskName !== taskNameToDelete;
             })
         );
     }, [toDoList]);
@@ -66,6 +66,7 @@ const Todo = ({t}: { t: any }) => {
                 deadline={deadline}
                 handleChange={handleChange}
                 addTask={addTask}
+                t={t}
             />
             {formattedTasks.map((task: ITask, key: number) => {
                 return (

@@ -24,7 +24,7 @@ const Navbar = (props: NavbarProps) => {
                         <Col style={{fontSize: '13px'}}>
                             Browser Language: {props.lng}
                         </Col>
-                        <Col>
+                        <Col className="text-end">
                             <US title="United States"
                                 onClick={() => handleLanguageChange("en")}
                                 style={{width: '30px', height: '30px', cursor: "pointer"}}

@@ -3,7 +3,8 @@ import {useTranslation} from "react-i18next";
 import FormInputs from "../components/FormInputs";
 import FormList from "../components/FormList";
 import {ITask} from "../interfaces/interface";
-import { getTasks } from '../api/api';
+import {v4 as uuidv4} from 'uuid';
+import {getTasks} from '../api/api';
 
 const Todo = ({t}: { t: any }) => {
     const {t: translate} = useTranslation();
@@ -21,7 +22,7 @@ const Todo = ({t}: { t: any }) => {
     }
 
     const addTask = (): void => {
-        const newTask = {taskName: task, deadline: deadline};
+        const newTask = {id: uuidv4(), taskName: task, deadline: deadline};
         setTodoList([...toDoList, newTask]);
         setTask("");
         setDeadline("");
@@ -40,6 +41,7 @@ const Todo = ({t}: { t: any }) => {
             const tasks = await getTasks();
             const formattedTasks = tasks.map((task: any) => {
                 return {
+                    id: uuidv4(),
                     taskName: task.taskName,
                     deadline: task.deadline,
                     completeTask: task.completeTask,

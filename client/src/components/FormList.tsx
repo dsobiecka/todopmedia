@@ -4,13 +4,14 @@ import {Container, Card, Button} from "react-bootstrap";
 
 interface Props {
     task: ITask;
+
     completeTask(taskNameToDelete: string): void;
 }
 
 const FormList = ({task, completeTask}: Props) => {
     return (
         <Container className="mt-5">
-            <Card className="d-flex flex-row align-items-center justify-content-between">
+            <Card className="d-flex flex-row align-items-center justify-content-between" id={task.id}>
                 <Card.Body>{task.taskName}</Card.Body>
                 <Card.Body style={{width: '30px'}}>{task.deadline}</Card.Body>
                 <Card.Body>
